@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +15,7 @@ public class CategoriaDeCultivo {
 	
 	String nombre;
 	@ManyToMany()
-	private ArrayList<Especie> especies;
+	private List<Especie> especies;
 	
 	public CategoriaDeCultivo(String nombre) {
 		this.nombre= nombre;
@@ -33,12 +34,16 @@ public class CategoriaDeCultivo {
 		this.nombre = nombre;
 	}
 
-	public ArrayList<Especie> getEspecies() {
+	public List<Especie> getEspecies() {
 		return especies;
 	}
 
 	public void setEspecies(ArrayList<Especie> especies) {
 		this.especies = especies;
+	}
+	
+	public void addEspecie(Especie especie) {
+		especies.add(especie);
 	}
 	
 	
