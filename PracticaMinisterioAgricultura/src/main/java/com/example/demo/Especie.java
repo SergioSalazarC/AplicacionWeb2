@@ -52,5 +52,8 @@ public class Especie {
 	public void setPlagas(ArrayList<Plaga> plagas) {
 		this.plagas = plagas;
 	}
+	public void addPlaga(Plaga p) {
+		this.plagas.add(p);
+	}
 	
 }
