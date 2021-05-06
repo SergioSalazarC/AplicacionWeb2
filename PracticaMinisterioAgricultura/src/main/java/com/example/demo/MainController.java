@@ -80,7 +80,7 @@ public class MainController {
 		especies.get(1).addPlaga(plagas.get(8));
 		especies.get(1).addPlaga(plagas.get(9));
 		especies.get(2).addPlaga(plagas.get(10));
-		especies.get(3).addPlaga(plagas.get(11);
+		especies.get(3).addPlaga(plagas.get(11));
 		especies.get(4).addPlaga(plagas.get(12));
 		especies.get(5).addPlaga(plagas.get(13));
 		especies.get(6).addPlaga(plagas.get(14));
