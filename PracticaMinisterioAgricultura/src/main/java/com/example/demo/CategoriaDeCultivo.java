@@ -17,6 +17,10 @@ public class CategoriaDeCultivo {
 	@ManyToMany()
 	private List<Especie> especies;
 	
+	
+	public CategoriaDeCultivo() {
+		especies = new ArrayList<Especie>();
+	}
 	public CategoriaDeCultivo(String nombre) {
 		this.nombre= nombre;
 		especies = new ArrayList<Especie>();

@@ -25,15 +25,14 @@ public class SustanciaActiva {
 		
 	}
 	
-	public SustanciaActiva(long id, String nombre, ArrayList<ProductoFitosanitario> productosFitosanitarios) {
-		this.id = id;
-		this.nombre = nombre;
-		this.productosFitosanitarios = productosFitosanitarios;
-	}
 	
 	public SustanciaActiva(String nombre, ArrayList<ProductoFitosanitario> productosFitosanitarios) {
 		this.nombre = nombre;
 		this.productosFitosanitarios = productosFitosanitarios;
+	}
+	
+	public SustanciaActiva(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	public void addProductoFitosanitario(ProductoFitosanitario prod) {
