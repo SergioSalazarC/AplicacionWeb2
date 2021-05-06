@@ -14,8 +14,13 @@ public class Especie {
 	private String nombreCientifico;
 	@ManyToMany()
 	private ArrayList<Plaga> plagas= new ArrayList<Plaga>();
-	public Especie(long id, String nombreVulgar, String nombreCientifico, ArrayList<Plaga> plagas) {
-		this.id = id;
+	
+	public Especie(String nombreVulgar, String nombreCientifico) {
+		this.nombreVulgar = nombreVulgar;
+		this.nombreCientifico = nombreCientifico;
+	}
+	
+	public Especie(String nombreVulgar, String nombreCientifico, ArrayList<Plaga> plagas) {
 		this.nombreVulgar = nombreVulgar;
 		this.nombreCientifico = nombreCientifico;
 		this.plagas = plagas;
