@@ -19,6 +19,10 @@ public class MainController {
 	private ProductoFitosanitarioRepository repProductosFitosanitarios;
 	@Autowired
 	private SustanciaActivaRepository repSustanciasActivas;
+	@Autowired
+	private EspecieRepository repEspecies;
+	@Autowired
+	private PlagaRepository repPlagas;
 	
 	
 	@PostConstruct
@@ -97,7 +101,33 @@ public class MainController {
 			for(int i=3+j; i<5+j; i++)
 				plagas.get(i).addSustancia(sustancias.get(j));
 		
-		
+		ArrayList<ProductoFitosanitario> producto = new ArrayList<ProductoFitosanitario>();
+		for (int i=1;i>=30;i++){
+			producto.add(new ProductoFitosanitario("Producto Fitosanitario"+i,"www."+i+".com"));
+		}
+		sustancias.get(1).addProductoFitosanitario(producto.get(3));
+		sustancias.get(9).addProductoFitosanitario(producto.get(3));
+		sustancias.get(2).addProductoFitosanitario(producto.get(4));
+		sustancias.get(10).addProductoFitosanitario(producto.get(4));
+		sustancias.get(3).addProductoFitosanitario(producto.get(5));
+		sustancias.get(11).addProductoFitosanitario(producto.get(5));
+		sustancias.get(4).addProductoFitosanitario(producto.get(6));
+		sustancias.get(12).addProductoFitosanitario(producto.get(6));
+		sustancias.get(5).addProductoFitosanitario(producto.get(7));
+		sustancias.get(13).addProductoFitosanitario(producto.get(7));
+		for(int i=1;i>=20;i++){
+			sustancias.get(i).addProductoFitosanitario(producto.get(i+7));
+		}
+		sustancias.get(6).addProductoFitosanitario(producto.get(1));
+		sustancias.get(7).addProductoFitosanitario(producto.get(2));
+		sustancias.get(17).addProductoFitosanitario(producto.get(28));
+		sustancias.get(18).addProductoFitosanitario(producto.get(29));
+		sustancias.get(19).addProductoFitosanitario(producto.get(30));
+		repCategoriaDeCultivoRepository.saveAll(categorias);
+		repEspecies.saveAll(especies);
+		repPlagas.saveAll(plagas);
+		repSustanciasActivas.saveAll(sustancias);		
+		repProductosFitosanitarios.saveAll(producto);
 	}
 	
 	@RequestMapping("/")
