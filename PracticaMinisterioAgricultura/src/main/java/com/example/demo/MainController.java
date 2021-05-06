@@ -89,13 +89,13 @@ public class MainController {
 		especies.get(5).addPlaga(plagas.get(14));
 		
 		List<SustanciaActiva> sustancias = new ArrayList();
-		for(int i=0; i<20; i++) sustancias.add(new SustanciaActiva(("sustancia "+(i+1)));
-		for(int i=0; i<3; i++) plagas.get(i).add(sustancias.get(0));
-		for(int i=3; i<6; i++) plagas.get(i).add(sustancias.get(1));
+		for(int i=0; i<20; i++) sustancias.add(new SustanciaActiva(("sustancia "+(i+1))));
+		for(int i=0; i<3; i++) plagas.get(i).addSustancia(sustancias.get(0));
+		for(int i=3; i<6; i++) plagas.get(i).addSustancia(sustancias.get(1));
 
 		for(int j=3; j<7; j++)
 			for(int i=3+j; i<5+j; i++)
-				plagas.get(i).add(sustancias.get(j));
+				plagas.get(i).addSustancia(sustancias.get(j));
 		
 		
 	}
