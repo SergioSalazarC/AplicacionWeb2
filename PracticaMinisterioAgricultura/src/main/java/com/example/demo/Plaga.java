@@ -24,6 +24,20 @@ public class Plaga {
 		URL = uRL;
 		this.sustancias = sustancias;
 	}
+	
+	public Plaga(String nombre, String nombreCientifico, String uRL, ArrayList<SustanciaActiva> sustancias) {
+		this.nombre = nombre;
+		this.nombreCientifico = nombreCientifico;
+		URL = uRL;
+		this.sustancias = sustancias;
+	}
+	
+	public Plaga(String nombre, String nombreCientifico, String uRL) {
+		this.nombre = nombre;
+		this.nombreCientifico = nombreCientifico;
+		URL = uRL;
+	}
+
 
 	public String getNombre() {
 		return nombre;
