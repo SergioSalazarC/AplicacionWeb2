@@ -1,12 +1,16 @@
 package com.example.demo;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Entity;
 
 @Entity
 public class Plaga {
+	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
@@ -14,7 +18,7 @@ public class Plaga {
 	private String nombreCientifico;
 	private String URL;
 	@ManyToMany()
-	private ArrayList<SustanciaActiva> sustancias=new ArrayList<SustanciaActiva>();
+	private List<SustanciaActiva> sustancias=new ArrayList<SustanciaActiva>();
 	public Plaga() {
 	}
 	public Plaga(long id,String nombre, String nombreCientifico, String uRL, ArrayList<SustanciaActiva> sustancias) {
@@ -57,7 +61,7 @@ public class Plaga {
 	public void setURL(String uRL) {
 		URL = uRL;
 	}
-	public ArrayList<SustanciaActiva> getSustancias() {
+	public List<SustanciaActiva> getSustancias() {
 		return sustancias;
 	}
 	public void setSustancias(ArrayList<SustanciaActiva> sustancias) {

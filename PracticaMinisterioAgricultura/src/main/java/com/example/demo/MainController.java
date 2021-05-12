@@ -9,12 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+
+@RestController
 public class MainController {
 	
 	@Autowired
-	private CategoriaDeCultivoRepository repCategoriaDeCultivoRepository;
+	private CategoriaDeCultivoRepository repCategoriaDeCultivo;
 	@Autowired
 	private ProductoFitosanitarioRepository repProductosFitosanitarios;
 	@Autowired
@@ -33,6 +36,8 @@ public class MainController {
 		categorias.add(new CategoriaDeCultivo("plantas ornamentales"));
 		categorias.add(new CategoriaDeCultivo("leguminosas"));
 		
+		repCategoriaDeCultivo.saveAll(categorias);
+		
 		List<Especie> especies = new ArrayList();
 		especies.add(new Especie("Tomate", "Solanum lycopersicum"));
 		especies.add(new Especie("Pepino", "Cucurbita pepo"));
@@ -43,6 +48,8 @@ public class MainController {
 		especies.add(new Especie("Patata", "Solanum Tuberosum"));
 		especies.add(new Especie("Judia", "Thaseolus vulgaris"));
 		
+		repEspecies.saveAll(especies);
+		
 		categorias.get(0).addEspecie(especies.get(0));
 		categorias.get(1).addEspecie(especies.get(0));
 		categorias.get(0).addEspecie(especies.get(1));
@@ -52,6 +59,7 @@ public class MainController {
 		categorias.get(3).addEspecie(especies.get(5));
 		categorias.get(0).addEspecie(especies.get(6));
 		categorias.get(3).addEspecie(especies.get(7));
+		
 		
 		List<Plaga> plagas = new ArrayList();
 		plagas.add(new Plaga("Mosca Blanca","Aleyrodidae","https://es.wikipedia.org/wiki/Aleyrodidae"));
@@ -70,6 +78,8 @@ public class MainController {
 		plagas.add(new Plaga("Cochinillas de la humedad","Oniscidea","https://es.wikipedia.org/wiki/Oniscidea"));
 		plagas.add(new Plaga("Cochinilla del carmín","Dactylopius coccus","https://es.wikipedia.org/wiki/Dactylopius_coccus"));
 		plagas.add(new Plaga("Cochinilla harinosa","Pseudococcidae","https://es.wikipedia.org/wiki/Pseudococcidae"));
+		
+		repPlagas.saveAll(plagas);
 		
 		especies.get(0).addPlaga(plagas.get(0));
 		especies.get(1).addPlaga(plagas.get(1));
@@ -92,46 +102,66 @@ public class MainController {
 		especies.get(5).addPlaga(plagas.get(15));
 		especies.get(5).addPlaga(plagas.get(14));
 		
+		
+		
 		List<SustanciaActiva> sustancias = new ArrayList();
 		for(int i=0; i<20; i++) sustancias.add(new SustanciaActiva(("sustancia "+(i+1))));
+		repSustanciasActivas.saveAll(sustancias);
 		for(int i=0; i<3; i++) plagas.get(i).addSustancia(sustancias.get(0));
 		for(int i=3; i<6; i++) plagas.get(i).addSustancia(sustancias.get(1));
+		
+		
 
 		for(int j=3; j<7; j++)
 			for(int i=3+j; i<5+j; i++)
 				plagas.get(i).addSustancia(sustancias.get(j));
 		
+			
+		
 		ArrayList<ProductoFitosanitario> producto = new ArrayList<ProductoFitosanitario>();
-		for (int i=1;i>=30;i++){
+		for (int i=1;i<=30;i++){
 			producto.add(new ProductoFitosanitario("Producto Fitosanitario"+i,"www."+i+".com"));
 		}
-		sustancias.get(1).addProductoFitosanitario(producto.get(3));
-		sustancias.get(9).addProductoFitosanitario(producto.get(3));
-		sustancias.get(2).addProductoFitosanitario(producto.get(4));
-		sustancias.get(10).addProductoFitosanitario(producto.get(4));
-		sustancias.get(3).addProductoFitosanitario(producto.get(5));
-		sustancias.get(11).addProductoFitosanitario(producto.get(5));
-		sustancias.get(4).addProductoFitosanitario(producto.get(6));
-		sustancias.get(12).addProductoFitosanitario(producto.get(6));
-		sustancias.get(5).addProductoFitosanitario(producto.get(7));
-		sustancias.get(13).addProductoFitosanitario(producto.get(7));
-		for(int i=1;i>=20;i++){
-			sustancias.get(i).addProductoFitosanitario(producto.get(i+7));
+		
+		repProductosFitosanitarios.saveAll(producto);
+		
+		sustancias.get(1).addProductoFitosanitario(producto.get(2));
+		sustancias.get(9).addProductoFitosanitario(producto.get(2));
+		sustancias.get(2).addProductoFitosanitario(producto.get(3));
+		sustancias.get(10).addProductoFitosanitario(producto.get(3));
+		sustancias.get(3).addProductoFitosanitario(producto.get(4));
+		sustancias.get(11).addProductoFitosanitario(producto.get(4));
+		sustancias.get(4).addProductoFitosanitario(producto.get(5));
+		sustancias.get(12).addProductoFitosanitario(producto.get(5));
+		sustancias.get(5).addProductoFitosanitario(producto.get(6));
+		sustancias.get(13).addProductoFitosanitario(producto.get(6));
+		for(int i=0;i<=19;i++){
+			sustancias.get(i).addProductoFitosanitario(producto.get(i+6));
 		}
 		sustancias.get(6).addProductoFitosanitario(producto.get(1));
 		sustancias.get(7).addProductoFitosanitario(producto.get(2));
-		sustancias.get(17).addProductoFitosanitario(producto.get(28));
-		sustancias.get(18).addProductoFitosanitario(producto.get(29));
-		sustancias.get(19).addProductoFitosanitario(producto.get(30));
-		repCategoriaDeCultivoRepository.saveAll(categorias);
+		sustancias.get(17).addProductoFitosanitario(producto.get(27));
+		sustancias.get(18).addProductoFitosanitario(producto.get(28));
+		sustancias.get(19).addProductoFitosanitario(producto.get(29));
+		
+		repCategoriaDeCultivo.saveAll(categorias);
 		repEspecies.saveAll(especies);
 		repPlagas.saveAll(plagas);
-		repSustanciasActivas.saveAll(sustancias);		
+		repSustanciasActivas.saveAll(sustancias);
 		repProductosFitosanitarios.saveAll(producto);
+		
 	}
 	
+	@RequestMapping(value = "/listaCultivos", method = RequestMethod.GET)
+	public List<CategoriaDeCultivo> getCultivos() {
+		return repCategoriaDeCultivo.findAll();
+	}
+	
+	/*
 	@RequestMapping("/")
 	public String controller(Model model) {
 		return "Main.html";
 	}
+	
+	*/
 }

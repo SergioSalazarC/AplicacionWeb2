@@ -1,26 +1,29 @@
 package com.example.demo;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Entity;
 @Entity
 public class Especie {
 	
-	
+	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	private String nombreVulgar;
 	private String nombreCientifico;
-	@ManyToMany()
-	private ArrayList<Plaga> plagas= new ArrayList<Plaga>();
+	@ManyToMany
+	private List<Plaga> plagas= new ArrayList<Plaga>();
 	
 	public Especie(String nombreVulgar, String nombreCientifico) {
 		this.nombreVulgar = nombreVulgar;
 		this.nombreCientifico = nombreCientifico;
 	}
 	
-	public Especie(String nombreVulgar, String nombreCientifico, ArrayList<Plaga> plagas) {
+	public Especie(String nombreVulgar, String nombreCientifico, List<Plaga> plagas) {
 		this.nombreVulgar = nombreVulgar;
 		this.nombreCientifico = nombreCientifico;
 		this.plagas = plagas;
@@ -46,7 +49,7 @@ public class Especie {
 	public void setNombreCientifico(String nombreCientifico) {
 		this.nombreCientifico = nombreCientifico;
 	}
-	public ArrayList<Plaga> getPlagas() {
+	public List<Plaga> getPlagas() {
 		return plagas;
 	}
 	public void setPlagas(ArrayList<Plaga> plagas) {
