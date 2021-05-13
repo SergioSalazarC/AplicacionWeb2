@@ -167,6 +167,17 @@ public class MainController {
 	public List<Plaga> getPlaga(@PathVariable("especieId") long especieId) {
 		return repEspecies.findById(especieId).getPlagas();
 	}
+	@RequestMapping(value = "/sustancias/{plagaId}", method = RequestMethod.GET)
+	public List<SustanciaActiva> getSustancia(@PathVariable("plagaId") long plagaId) {
+		return repPlagas.findById(plagaId).getSustancias();
+	}
+	
+
+	@RequestMapping(value = "/productos/{sustanciaId}", method = RequestMethod.GET)
+	public List<ProductoFitosanitario> getProducto(@PathVariable("sustanciaId") long sustanciaId) {
+		return repSustanciasActivas.findById(sustanciaId).getProductosFitosanitarios();
+	}
+	
 	
 	/*
 	@RequestMapping("/")

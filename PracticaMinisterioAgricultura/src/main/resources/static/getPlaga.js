@@ -16,7 +16,13 @@ $.getJSON(urlplagas,
 		for (plaga in respuesta){
 			k = respuesta[plaga].id+'_'+especie;
 			lista.append($('<li class='+ k+'>').html(respuesta[plaga].nombre));		
-		   	$("."+k).append('<form> <input id="boton" type="button" value="Ocultar titulo" /> </form>');
+		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Sustancias" /> </form>');
+			var boton=$("#"+k);	
+
+			boton.click(function(){
+				h=$(this).attr("id");
+				getSustancias(h);
+			});
 		}
 		
 		
