@@ -1,15 +1,12 @@
-function toggle(id_esp){
-			getEspecies(id_esp);
-		}
+
 
 
 $(function() {
 
-var urlcultivos ='http://localhost:8080/listaCultivos';
+	var urlcultivos ='http://localhost:8080/listaCultivos';
 
 
-$.getJSON(urlcultivos,
-
+	$.getJSON(urlcultivos,
      function(respuesta) {
 		lista=$(".listaCultivos")
         
@@ -17,25 +14,20 @@ $.getJSON(urlcultivos,
 		for (cultivo in respuesta){
 			k = respuesta[cultivo].id
 			lista.append($('<li class='+ k +'>').html(respuesta[cultivo].nombre));		
-		   	$("."+k).append('<form> <input id="boton_'+k +'" type="button" value="Ocultar titulo" /> </form>');
+		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Ocultar titulo" /> </form>');
+			
+					
+			var boton=$("#"+k);	
 
 			
-			
-			var boton=$("#boton_"+k);	
-			
-			boton.click(toggle(k));
-			
-	
+			boton.click(function(){
+				h=$(this).attr("id");
+				getEspecies(h);
+			});
 		}
 		
 		
-		
-		
-		
-		
   });
-
-
 
 });
 
