@@ -163,10 +163,9 @@ public class MainController {
 		return repCategoriaDeCultivo.findById(cultivo).getEspecies();
 	}
 	
-	@RequestMapping(value = "/plagas/{especie}", method = RequestMethod.GET)
-	public List<Plaga> getPlaga(@PathVariable("especie") String especie) {
-		String s = especie.split("_")[0];
-		return repEspecies.findById(Long.parseLong(s)).getPlagas();
+	@RequestMapping(value = "/plagas/{especieId}", method = RequestMethod.GET)
+	public List<Plaga> getPlaga(@PathVariable("especieId") long especieId) {
+		return repEspecies.findById(especieId).getPlagas();
 	}
 	
 	/*

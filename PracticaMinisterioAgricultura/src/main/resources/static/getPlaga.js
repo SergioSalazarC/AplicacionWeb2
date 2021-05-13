@@ -1,11 +1,12 @@
 function getPlagas (especie) {
-var urlplagas ='http://localhost:8080/plagas/'+encodeURI(especie);
+	
+especieId = especie.split('_')[0];
+var urlplagas ='http://localhost:8080/plagas/'+encodeURI(especieId);
 
 
 $.getJSON(urlplagas,
 
      function(respuesta) {
-		console.log(respuesta);
 		lista=$("."+especie)
         lista.append($("<ul>"))
 		lista=lista.find("ul")
