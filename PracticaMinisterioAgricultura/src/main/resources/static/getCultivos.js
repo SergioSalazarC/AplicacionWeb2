@@ -14,7 +14,7 @@ $(function() {
 		for (cultivo in respuesta){
 			k = respuesta[cultivo].id
 			lista.append($('<li class='+ k +'>').html(respuesta[cultivo].nombre));		
-		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Ocultar titulo" /> </form>');
+		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Especies" /> </form>');
 			
 					
 			var boton=$("#"+k);	

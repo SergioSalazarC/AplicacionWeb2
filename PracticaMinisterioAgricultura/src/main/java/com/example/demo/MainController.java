@@ -163,6 +163,12 @@ public class MainController {
 		return repCategoriaDeCultivo.findById(cultivo).getEspecies();
 	}
 	
+	@RequestMapping(value = "/plagas/{especie}", method = RequestMethod.GET)
+	public List<Plaga> getPlaga(@PathVariable("especie") String especie) {
+		String s = especie.split("_")[0];
+		return repEspecies.findById(Long.parseLong(s)).getPlagas();
+	}
+	
 	/*
 	@RequestMapping("/")
 	public String controller(Model model) {
