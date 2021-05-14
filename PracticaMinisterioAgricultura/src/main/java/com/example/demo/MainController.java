@@ -117,6 +117,14 @@ public class MainController {
 			for(int i=3+j; i<5+j; i++)
 				plagas.get(i).addSustancia(sustancias.get(j));
 		
+		for(int i=12; i<16; i++) {
+			plagas.get(i).addSustancia(sustancias.get(i-5));
+		}
+		for(int i=11; i<20; i++) {
+			int random = (int) (Math.random()*16);
+			plagas.get(random).addSustancia(sustancias.get(i));
+		}
+		
 			
 		
 		ArrayList<ProductoFitosanitario> producto = new ArrayList<ProductoFitosanitario>();
