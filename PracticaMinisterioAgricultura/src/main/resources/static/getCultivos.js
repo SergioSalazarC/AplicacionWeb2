@@ -22,7 +22,17 @@ $(function() {
 			
 			boton.click(function(){
 				h=$(this).attr("id");
-				getEspecies(h);
+				if ($(this).attr("value")=="Ocultar"){
+					$(this).attr("value","Mostrar Especies");
+					$("."+h+"_u").remove()
+					
+				}
+				else{					
+					getEspecies(h);
+					$(this).attr("value","Ocultar");
+				}
+				
+				
 			});
 		}
 		

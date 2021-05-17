@@ -8,7 +8,7 @@ $.getJSON(urlsustancias,
 
      function(respuesta) {
 		lista=$("."+plaga)
-        lista.append($("<ul>"))
+        lista.append($("<ul class="+plaga+"_u >"));
 		lista=lista.find("ul")
 		
 		
@@ -21,7 +21,17 @@ $.getJSON(urlsustancias,
 
 			boton.click(function(){
 				h=$(this).attr("id");
-				getProductos(h);
+				if ($(this).attr("value")=="Ocultar"){
+					$(this).attr("value","Mostrar Productos");
+					$("."+h+"_u").remove()
+					
+				}
+				else{					
+					getProductos(h);
+					$(this).attr("value","Ocultar");
+				}
+				
+				
 			});
 		}
 		

@@ -8,7 +8,7 @@ $.getJSON(urlproductos,
 
      function(respuesta) {
 		lista=$("."+sustancia)
-        lista.append($("<ul>"))
+        lista.append($("<ul class="+sustancia+"_u >"));
 		lista=lista.find("ul")
 		
 		
