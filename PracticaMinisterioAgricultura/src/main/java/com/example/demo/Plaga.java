@@ -77,7 +77,6 @@ public class Plaga {
 	public void addSustancia(SustanciaActiva s) {
 		this.sustancias.add(s);
 	}
-	
 	public Plaga copiaSinLista() {
 		return(new Plaga(this.id, this.nombre, this.nombreCientifico, this.url));
 	}

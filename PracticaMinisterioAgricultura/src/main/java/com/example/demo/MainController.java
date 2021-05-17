@@ -160,9 +160,10 @@ public class MainController {
 		repProductosFitosanitarios.saveAll(producto);
 		
 	}
-	
+	//Controlador Rest que devuelve todas las CategoriasDeCultivo de la base de datos
 	@RequestMapping(value = "/listaCultivos", method = RequestMethod.GET)
 	public List<CategoriaDeCultivo> getCultivos() {
+		//no devolvemos directamene la consulta si no que utilizamos un metodo que copia cada CategoriadeCultivo sin la lista de especies para cargar menos información en el html
 		List<CategoriaDeCultivo> list = repCategoriaDeCultivo.findAll();
 		List<CategoriaDeCultivo> aux = new ArrayList<>();
 		for(CategoriaDeCultivo categoria: list) {
@@ -170,9 +171,10 @@ public class MainController {
 		}
 		return(aux);
 	}
-	
+	//Controlador Rest que devuelve todas las Especies en la base de datos relacionadas con la categoria de cultivo  que nos devuelva la página web 
 	@RequestMapping(value = "/especies/{cultivo}", method = RequestMethod.GET)
 	public List<Especie> getEspecie(@PathVariable("cultivo") long cultivo) {
+		//no devolvemos directamene la consulta si no que utilizamos un metodo que copia cada especie sin la lista de plagas para cargar menos información en el html
 		List<Especie> list= repCategoriaDeCultivo.findById(cultivo).getEspecies();
 		List<Especie> aux = new ArrayList<>();
 		for(Especie especie: list) {
@@ -180,9 +182,10 @@ public class MainController {
 		}
 		return(aux);
 	}
-	
+	//Controlador Rest que devuelve todas las Plagas en la base de datos relacionadas con la especie que nos devuelva la página web 
 	@RequestMapping(value = "/plagas/{especieId}", method = RequestMethod.GET)
 	public List<Plaga> getPlaga(@PathVariable("especieId") long especieId) {
+		//no devolvemos directamene la consulta si no que utilizamos un metodo que copia cada Plaga sin la lista de sustancias activas para cargar menos información en el html
 		List<Plaga> list= repEspecies.findById(especieId).getPlagas();
 		List<Plaga> aux = new ArrayList<>();
 		for(Plaga plaga: list) {
@@ -190,8 +193,11 @@ public class MainController {
 		}
 		return(aux);
 	}
+	//Controlador Rest que devuelve todas las SustanciasActivas en la base de datos relacionadas con la plaga  que nos devuelva la página web 
 	@RequestMapping(value = "/sustancias/{plagaId}", method = RequestMethod.GET)
 	public List<SustanciaActiva> getSustancia(@PathVariable("plagaId") long plagaId) {
+		/*no devolvemos directamene la consulta si no que utilizamos un metodo que copia cada SustanciaActiva sin la lista de productos fitosanitario
+		  para cargar menos información en el html*/
 		List<SustanciaActiva> list= repPlagas.findById(plagaId).getSustancias();
 		List<SustanciaActiva> aux = new ArrayList<>();
 		for(SustanciaActiva sustancia: list) {
@@ -200,7 +206,7 @@ public class MainController {
 		return(aux);
 	}
 	
-
+	//Controlador Rest que devuelve todas los ProductosFitosanitarios en la base de datos relacionadas con la sustancia activa  que nos devuelva la página web 
 	@RequestMapping(value = "/productos/{sustanciaId}", method = RequestMethod.GET)
 	public List<ProductoFitosanitario> getProducto(@PathVariable("sustanciaId") long sustanciaId) {
 		return repSustanciasActivas.findById(sustanciaId).getProductosFitosanitarios();

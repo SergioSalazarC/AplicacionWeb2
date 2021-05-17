@@ -1,3 +1,4 @@
+//Funcion que se va a encargar de generar el subarbol de los productos fitosanitarios de la sustancia activa que reciba como parametro 
 function getProductos (sustancia) {
 	
 sustanciaId = sustancia.split('_')[0];
@@ -8,7 +9,11 @@ $.getJSON(urlproductos,
 
      function(respuesta) {
 		lista=$("."+sustancia)
-        lista.append($("<ul class="+sustancia+"_u >"));
+		/*la variable lista hace referencia a la raiz de nuestro subarbol que fue incluida en el script anterior. Con ella introduciremos como
+		 ramas del arbol los productos fitosanitarios de unasustancia activa*/
+		lista.append($("<ul class="+sustancia+"_u >"));
+		/*añadimos una raiz de arbol para poder generar nuestro subarbol que esta identificado como el id de su padre+_u para que se pueda localizar 
+		en el arbol doom y el boton de la sustancia activa padre pueda borrar la información*/
 		lista=lista.find("ul")
 		
 		
