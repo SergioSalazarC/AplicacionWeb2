@@ -16,11 +16,19 @@ public class Especie {
 	private String nombreVulgar;
 	private String nombreCientifico;
 	@ManyToMany
-	private List<Plaga> plagas= new ArrayList<Plaga>();
+	private List<Plaga> plagas;
 	
 	public Especie(String nombreVulgar, String nombreCientifico) {
 		this.nombreVulgar = nombreVulgar;
 		this.nombreCientifico = nombreCientifico;
+		this.plagas = new ArrayList<Plaga>();
+	}
+	
+	private Especie(long id, String nombreVulgar, String nombreCientifico) {
+		this.id = id;
+		this.nombreVulgar = nombreVulgar;
+		this.nombreCientifico = nombreCientifico;
+		this.plagas = new ArrayList<Plaga>();
 	}
 	
 	public Especie(String nombreVulgar, String nombreCientifico, List<Plaga> plagas) {
@@ -58,5 +66,11 @@ public class Especie {
 	public void addPlaga(Plaga p) {
 		this.plagas.add(p);
 	}
+	
+	public Especie copiaSinLista() {
+		return(new Especie(this.id, this.nombreVulgar, this.nombreCientifico));
+	}
+	
+	
 	
 }

@@ -16,30 +16,31 @@ public class Plaga {
 	
 	private String nombre;
 	private String nombreCientifico;
-	private String URL;
+	private String url;
 	@ManyToMany()
-	private List<SustanciaActiva> sustancias=new ArrayList<SustanciaActiva>();
+	private List<SustanciaActiva> sustancias;
 	public Plaga() {
 	}
-	public Plaga(long id,String nombre, String nombreCientifico, String uRL, ArrayList<SustanciaActiva> sustancias) {
-		this.id =id;
-		this.nombre = nombre;
-		this.nombreCientifico = nombreCientifico;
-		URL = uRL;
-		this.sustancias = sustancias;
-	}
-	
 	public Plaga(String nombre, String nombreCientifico, String uRL, ArrayList<SustanciaActiva> sustancias) {
 		this.nombre = nombre;
 		this.nombreCientifico = nombreCientifico;
-		URL = uRL;
+		url = uRL;
 		this.sustancias = sustancias;
 	}
 	
-	public Plaga(String nombre, String nombreCientifico, String uRL) {
+	public Plaga(String nombre, String nombreCientifico, String url) {
 		this.nombre = nombre;
 		this.nombreCientifico = nombreCientifico;
-		URL = uRL;
+		this.url = url;
+		this.sustancias = new ArrayList<SustanciaActiva>();
+	}
+	
+	private Plaga(long id, String nombre, String nombreCientifico, String url) {
+		this.id = id;
+		this.nombre = nombre;
+		this.nombreCientifico = nombreCientifico;
+		this.url = url;
+		this.sustancias = new ArrayList<SustanciaActiva>();
 	}
 
 
@@ -56,10 +57,10 @@ public class Plaga {
 		this.nombreCientifico = nombreCientifico;
 	}
 	public String getURL() {
-		return URL;
+		return url;
 	}
 	public void setURL(String uRL) {
-		URL = uRL;
+		url = uRL;
 	}
 	public List<SustanciaActiva> getSustancias() {
 		return sustancias;
@@ -75,6 +76,10 @@ public class Plaga {
 	}
 	public void addSustancia(SustanciaActiva s) {
 		this.sustancias.add(s);
+	}
+	
+	public Plaga copiaSinLista() {
+		return(new Plaga(this.id, this.nombre, this.nombreCientifico, this.url));
 	}
 	
 }

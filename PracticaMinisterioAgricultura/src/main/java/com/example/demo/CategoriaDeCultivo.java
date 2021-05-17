@@ -27,6 +27,11 @@ public class CategoriaDeCultivo {
 		this.nombre= nombre;
 		especies = new ArrayList<Especie>();
 	}
+	private CategoriaDeCultivo(long id, String nombre) {
+		this.id = id;
+		this.nombre = nombre;
+		especies = new ArrayList<Especie>();
+	}
 	
 	public long getId() {
 		return id;
@@ -50,6 +55,10 @@ public class CategoriaDeCultivo {
 	
 	public void addEspecie(Especie especie) {
 		especies.add(especie);
+	}
+	
+	public CategoriaDeCultivo copiaSinLista() {
+		return(new CategoriaDeCultivo(this.id, this.nombre));
 	}
 	
 	

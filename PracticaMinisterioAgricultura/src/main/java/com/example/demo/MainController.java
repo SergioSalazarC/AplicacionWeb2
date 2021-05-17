@@ -163,21 +163,41 @@ public class MainController {
 	
 	@RequestMapping(value = "/listaCultivos", method = RequestMethod.GET)
 	public List<CategoriaDeCultivo> getCultivos() {
-		return repCategoriaDeCultivo.findAll();
+		List<CategoriaDeCultivo> list = repCategoriaDeCultivo.findAll();
+		List<CategoriaDeCultivo> aux = new ArrayList<>();
+		for(CategoriaDeCultivo categoria: list) {
+			aux.add(categoria.copiaSinLista());
+		}
+		return(aux);
 	}
 	
 	@RequestMapping(value = "/especies/{cultivo}", method = RequestMethod.GET)
 	public List<Especie> getEspecie(@PathVariable("cultivo") long cultivo) {
-		return repCategoriaDeCultivo.findById(cultivo).getEspecies();
+		List<Especie> list= repCategoriaDeCultivo.findById(cultivo).getEspecies();
+		List<Especie> aux = new ArrayList<>();
+		for(Especie especie: list) {
+			aux.add(especie.copiaSinLista());
+		}
+		return(aux);
 	}
 	
 	@RequestMapping(value = "/plagas/{especieId}", method = RequestMethod.GET)
 	public List<Plaga> getPlaga(@PathVariable("especieId") long especieId) {
-		return repEspecies.findById(especieId).getPlagas();
+		List<Plaga> list= repEspecies.findById(especieId).getPlagas();
+		List<Plaga> aux = new ArrayList<>();
+		for(Plaga plaga: list) {
+			aux.add(plaga.copiaSinLista());
+		}
+		return(aux);
 	}
 	@RequestMapping(value = "/sustancias/{plagaId}", method = RequestMethod.GET)
 	public List<SustanciaActiva> getSustancia(@PathVariable("plagaId") long plagaId) {
-		return repPlagas.findById(plagaId).getSustancias();
+		List<SustanciaActiva> list= repPlagas.findById(plagaId).getSustancias();
+		List<SustanciaActiva> aux = new ArrayList<>();
+		for(SustanciaActiva sustancia: list) {
+			aux.add(sustancia.copiaSinLista());
+		}
+		return(aux);
 	}
 	
 

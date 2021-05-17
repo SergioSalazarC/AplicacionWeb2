@@ -19,7 +19,7 @@ public class SustanciaActiva {
 	
 	private String nombre;
 	@ManyToMany
-	private List<ProductoFitosanitario> productosFitosanitarios = new ArrayList<>();
+	private List<ProductoFitosanitario> productosFitosanitarios;
 	
 	
 	public SustanciaActiva() {
@@ -34,7 +34,15 @@ public class SustanciaActiva {
 	
 	public SustanciaActiva(String nombre) {
 		this.nombre = nombre;
+		this.productosFitosanitarios = new ArrayList<>();
 	}
+	
+	private SustanciaActiva(long id, String nombre) {
+		this.id = id;
+		this.nombre = nombre;
+		this.productosFitosanitarios = new ArrayList<>();
+	}
+	
 	
 	public void addProductoFitosanitario(ProductoFitosanitario prod) {
 		productosFitosanitarios.add(prod);
@@ -63,6 +71,10 @@ public class SustanciaActiva {
 
 	public void setProductosFitosanitarios(ArrayList<ProductoFitosanitario> productosFitosanitarios) {
 		this.productosFitosanitarios = productosFitosanitarios;
+	}
+	
+	public SustanciaActiva copiaSinLista() {
+		return(new SustanciaActiva(this.id, this.nombre));
 	}
 
 	
