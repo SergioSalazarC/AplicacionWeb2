@@ -24,7 +24,7 @@ $.getJSON(urlplagas,
 			/*Al igual que con las especies añadimos la plaga entre una etiqueta span para que el nombre cientifico que se presenta con el easyTooltip
 			 solo se muestre al colocarse sobre el nombre*/
 			
-			lista.append($('<li class='+ k+'>').html("<span class="+k+"_s>"+ respuesta[plaga].nombre +"</span>"+"</br>"+"<a class='url' href ='"+respuesta[plaga].url+"' >"+respuesta[plaga].url  +"</a>"));	
+			lista.append($('<li class='+ k+'>').html("<span class="+k+"_s>"+ respuesta[plaga].nombre +"</span>"+"</br>"+"<a class='url' href ='"+respuesta[plaga].url+"' target='_blank' >"+respuesta[plaga].url  +"</a>"));	
 			
 			$("."+k+"_s").easyTooltip({
   content: "<span >"+ respuesta[plaga].nombreCientifico +" </span>"

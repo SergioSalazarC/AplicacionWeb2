@@ -20,7 +20,7 @@ $.getJSON(urlproductos,
 		
 		for (producto in respuesta){
 			k = respuesta[producto].id+'_'+sustancia;
-			lista.append($('<li class='+ k+'>').html("<span >"+ respuesta[producto].nombre +"</span>"+"</br>"+"<a class='url' href= '"+respuesta[producto].url+"' >"+respuesta[producto].url  +"</a>"));	
+			lista.append($('<li class='+ k+'>').html("<span >"+ respuesta[producto].nombre +"</span>"+"</br>"+"<a class='url' href= '"+respuesta[producto].url+"' target='_blank' >"+respuesta[producto].url  +"</a>"));	
 			
 		}	
 		
