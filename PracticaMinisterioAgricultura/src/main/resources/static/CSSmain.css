@@ -18,3 +18,5 @@ ul {margin-left: 2%; font-family: Copperplate, "Copperplate Gothic Light", fanta
 input{color:var(--color);transition:.25s}
 input:focus,input:hover{border-color:var(--hover);color:#000}
 input{ border:1px solid;font:inherit;line-height:1;margin:.1em;padding:0.4em 1.0em}
+
+.url{font-size: 14px}

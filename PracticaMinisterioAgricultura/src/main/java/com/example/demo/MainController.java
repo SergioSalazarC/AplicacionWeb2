@@ -129,7 +129,7 @@ public class MainController {
 		
 		ArrayList<ProductoFitosanitario> producto = new ArrayList<ProductoFitosanitario>();
 		for (int i=1;i<=30;i++){
-			producto.add(new ProductoFitosanitario("Producto "+i,"www."+i+".com"));
+			producto.add(new ProductoFitosanitario("Producto "+i,"https://www."+i+".com"));
 		}
 		
 		repProductosFitosanitarios.saveAll(producto);
