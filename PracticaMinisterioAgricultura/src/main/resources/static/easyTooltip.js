@@ -72,7 +72,7 @@
         tooltipZindex: 1e4,
         tooltipPadding: "10px 15px",
         tooltipBgColor: "rgba(200,200,200,0.7)",
-        tooltipFtSize: "14px",
+        tooltipFtSize: "20px",
         tooltipLineHeight: "24px",
         tooltipFtColor: "#000",
         tooltipOpacity: 1,

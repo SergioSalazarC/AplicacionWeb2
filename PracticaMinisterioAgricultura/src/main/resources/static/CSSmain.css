@@ -1,11 +1,20 @@
 @charset "ISO-8859-1";
-.raise:focus,.raise:hover{box-shadow:0 .5em .5em -.4em var(--hover);-webkit-transform:translateY(-.25em);transform:translateY(-.25em)}
-.raise{--color:#000;--hover:#009999}
-input{color:var(--color);transition:.25s}
-input:focus,input:hover{border-color:var(--hover);color:#000}
-input{border:1px solid;font:inherit;line-height:1;margin:.2em;padding:0.5em 1.2em}
 
 body {
+  margin-left: 3%;
+  margin-top:3%;
   background-image: url("../images/fondo.png");
   background-position: 50% 50%;
 }
+
+h1 { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 44px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+li {margin-left: 2%; font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+ul {margin-left: 2%; font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+
+
+
+.raise:focus,.raise:hover{box-shadow:0 .5em .5em -.4em var(--hover);-webkit-transform:translateY(-.25em);transform:translateY(-.25em)}
+.raise{--color:#000;--hover:#72a697; font-size: 14px;}
+input{color:var(--color);transition:.25s}
+input:focus,input:hover{border-color:var(--hover);color:#000}
+input{ border:1px solid;font:inherit;line-height:1;margin:.1em;padding:0.4em 1.0em}

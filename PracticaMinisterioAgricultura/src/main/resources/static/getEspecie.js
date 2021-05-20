@@ -25,9 +25,9 @@ $.getJSON(urlespecies,
 			lista.append($('<li class='+ k+'>').html("<span class="+k+"_s>"+ respuesta[especie].nombreVulgar+"</span>"));	
 				
 			$("."+k+"_s").easyTooltip({
-  content: "<span style='color:blue;'>"+ respuesta[especie].nombreCientifico +" </span>"
+  content: "<span>"+ respuesta[especie].nombreCientifico +" </span>"
 });
-		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Plagas" /> </form>');
+		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Plagas"  class="raise"/> </form>');
 			
 			var boton=$("#"+k);	
 

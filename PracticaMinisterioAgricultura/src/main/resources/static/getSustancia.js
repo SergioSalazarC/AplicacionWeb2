@@ -22,7 +22,7 @@ $.getJSON(urlsustancias,
 		for (sustancia in respuesta){
 			k = respuesta[sustancia].id+'_'+plaga;
 			lista.append($('<li class='+ k+'>').html(respuesta[sustancia].nombre));		
-		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Productos" /> </form>');
+		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Productos"  class="raise"/> </form>');
 			var boton=$("#"+k);	
 
 			boton.click(function(){

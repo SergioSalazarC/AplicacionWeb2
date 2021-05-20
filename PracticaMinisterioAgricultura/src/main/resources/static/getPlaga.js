@@ -26,12 +26,12 @@ $.getJSON(urlplagas,
 			lista.append($('<li class='+ k+'>').html("<span class="+k+"_s>"+ respuesta[plaga].nombre +"</span>"));		
 			
 			$("."+k+"_s").easyTooltip({
-  content: "<span style='color:blue;'>"+ respuesta[plaga].nombreCientifico +" </span>"
+  content: "<span >"+ respuesta[plaga].nombreCientifico +" </span>"
 });
 			
 			
 			
-		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Sustancias" /> </form>');
+		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Sustancias"  class="raise"/> </form>');
 			var boton=$("#"+k);	
 
 			boton.click(function(){
