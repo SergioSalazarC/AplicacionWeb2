@@ -16,8 +16,9 @@ $(function() {
 			k = respuesta[cultivo].id
 			//A cada rama del arbol le asociamos una clase con su identificador y el de sus padre para poder identificar los elementos repetidos como entes diferentes
 			lista.append($('<li class='+ k +'>').html(respuesta[cultivo].nombre));
-			//Al boton le asociamos el identificador tambien para que sepa con respecto a que categoría cultivo debe expandir el arbol con sus especies 		
-		   	$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Especies" /> </form>');
+			//Al boton le asociamos el identificador tambien para que sepa con respecto a que categoría cultivo debe expandir el arbol con sus especies 
+				   	
+			$("."+k).append('<form> <input id="'+k+'" type="button" value="Mostrar Especies" class="raise"/> </form>');
 			
 					
 			var boton=$("#"+k);	
