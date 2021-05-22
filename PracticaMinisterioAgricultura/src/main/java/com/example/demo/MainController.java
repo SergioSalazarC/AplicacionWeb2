@@ -31,6 +31,7 @@ public class MainController {
 	
 	@PostConstruct
 	public void init() {
+		//Creamos 4 categorías
 		List<CategoriaDeCultivo>categorias = new ArrayList();
 		categorias.add(new CategoriaDeCultivo("hortalizas"));
 		categorias.add(new CategoriaDeCultivo("arboles frutales"));
@@ -39,6 +40,7 @@ public class MainController {
 		
 		repCategoriaDeCultivo.saveAll(categorias);
 		
+		//Creamos 8 especies.
 		List<Especie> especies = new ArrayList();
 		especies.add(new Especie("Tomate", "Solanum lycopersicum"));
 		especies.add(new Especie("Pepino", "Cucurbita pepo"));
@@ -51,6 +53,7 @@ public class MainController {
 		
 		repEspecies.saveAll(especies);
 		
+		//Añadimos todas las especies a las distintas categorías, el tomate a 2 de ellas.
 		categorias.get(0).addEspecie(especies.get(0));
 		categorias.get(1).addEspecie(especies.get(0));
 		categorias.get(0).addEspecie(especies.get(1));
@@ -61,7 +64,7 @@ public class MainController {
 		categorias.get(0).addEspecie(especies.get(6));
 		categorias.get(3).addEspecie(especies.get(7));
 		
-		
+		//Creamos 16 plagas.
 		List<Plaga> plagas = new ArrayList();
 		plagas.add(new Plaga("Mosca Blanca","Aleyrodidae","https://es.wikipedia.org/wiki/Aleyrodidae"));
 		plagas.add(new Plaga("Pulgón","Alphididae","https://es.wikipedia.org/wiki/Aphididae"));
@@ -82,6 +85,7 @@ public class MainController {
 		
 		repPlagas.saveAll(plagas);
 		
+		//Añadimos las plagas a las especies, la 5 y la 14 afectan a dos especies y la 8 a 3 especies
 		especies.get(0).addPlaga(plagas.get(0));
 		especies.get(1).addPlaga(plagas.get(1));
 		especies.get(2).addPlaga(plagas.get(2));
@@ -93,6 +97,7 @@ public class MainController {
 		especies.get(7).addPlaga(plagas.get(7));
 		especies.get(0).addPlaga(plagas.get(8));
 		especies.get(1).addPlaga(plagas.get(8));
+		especies.get(4).addPlaga(plagas.get(8));
 		especies.get(1).addPlaga(plagas.get(9));
 		especies.get(2).addPlaga(plagas.get(10));
 		especies.get(3).addPlaga(plagas.get(11));
@@ -104,19 +109,23 @@ public class MainController {
 		especies.get(5).addPlaga(plagas.get(14));
 		
 		
-		
+		//Creamos 20 sustancias activas
 		List<SustanciaActiva> sustancias = new ArrayList();
 		for(int i=0; i<20; i++) sustancias.add(new SustanciaActiva(("sustancia "+(i+1))));
 		repSustanciasActivas.saveAll(sustancias);
+		
+		//Añadimos la sustancia 0 y 1, a 3 plagas distintas
 		for(int i=0; i<3; i++) plagas.get(i).addSustancia(sustancias.get(0));
 		for(int i=3; i<6; i++) plagas.get(i).addSustancia(sustancias.get(1));
 		
 		
-
+		//Añadimos de la 3 a la 7 a 2 plagas distintas.
 		for(int j=3; j<7; j++)
 			for(int i=3+j; i<5+j; i++)
 				plagas.get(i).addSustancia(sustancias.get(j));
 		
+		
+		//Añadimos el resto de sutancias.
 		for(int i=11; i<16; i++) {
 			plagas.get(i).addSustancia(sustancias.get(i-4));
 		}
@@ -126,7 +135,7 @@ public class MainController {
 		}
 		
 			
-		
+		//Creamos 30 productos fitosanitarios
 		ArrayList<ProductoFitosanitario> producto = new ArrayList<ProductoFitosanitario>();
 		for (int i=1;i<=30;i++){
 			producto.add(new ProductoFitosanitario("Producto "+i,"https://www.fitosanitario"+i+".com"));
@@ -134,6 +143,7 @@ public class MainController {
 		
 		repProductosFitosanitarios.saveAll(producto);
 		
+		//Le añadimoss a los productos 2,3,4,5,6 tienen 2 sustancias distintas.
 		sustancias.get(1).addProductoFitosanitario(producto.get(2));
 		sustancias.get(9).addProductoFitosanitario(producto.get(2));
 		sustancias.get(2).addProductoFitosanitario(producto.get(3));
@@ -144,8 +154,10 @@ public class MainController {
 		sustancias.get(12).addProductoFitosanitario(producto.get(5));
 		sustancias.get(5).addProductoFitosanitario(producto.get(6));
 		sustancias.get(13).addProductoFitosanitario(producto.get(6));
+		
+		//Añadimos los productos que faltan.
 		for(int i=0;i<=19;i++){
-			sustancias.get(i).addProductoFitosanitario(producto.get(i+6));
+			sustancias.get(i).addProductoFitosanitario(producto.get(i+7));
 		}
 		sustancias.get(6).addProductoFitosanitario(producto.get(1));
 		sustancias.get(7).addProductoFitosanitario(producto.get(2));
@@ -153,6 +165,8 @@ public class MainController {
 		sustancias.get(18).addProductoFitosanitario(producto.get(28));
 		sustancias.get(19).addProductoFitosanitario(producto.get(29));
 		
+		
+		//Actualizamos todos los repositorios.
 		repCategoriaDeCultivo.saveAll(categorias);
 		repEspecies.saveAll(especies);
 		repPlagas.saveAll(plagas);

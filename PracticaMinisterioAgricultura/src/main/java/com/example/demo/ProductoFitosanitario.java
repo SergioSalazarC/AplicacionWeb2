@@ -8,6 +8,8 @@ import javax.persistence.Id;
 
 @Entity
 public class ProductoFitosanitario {
+	//Esta es la clase Producto Fitosanitario, son su constructores y sus setters y getters
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;

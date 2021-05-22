@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class Plaga {
+	//Esta es la clase Plaga, son su constructores y sus setters y getters
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
@@ -35,6 +37,7 @@ public class Plaga {
 		this.sustancias = new ArrayList<SustanciaActiva>();
 	}
 	
+	//Constructor usado para el método copia sin lista.
 	private Plaga(long id, String nombre, String nombreCientifico, String url) {
 		this.id = id;
 		this.nombre = nombre;
@@ -74,9 +77,13 @@ public class Plaga {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	//Añade una sustancia a su lista.
 	public void addSustancia(SustanciaActiva s) {
 		this.sustancias.add(s);
 	}
+	
+	//Método para copiar el objeto sin la lista.
 	public Plaga copiaSinLista() {
 		return(new Plaga(this.id, this.nombre, this.nombreCientifico, this.url));
 	}

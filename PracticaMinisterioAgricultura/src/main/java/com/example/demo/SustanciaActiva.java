@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class SustanciaActiva {
+	//Esta es la clase Sustancia Activa, son su constructores y sus setters y getters
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -37,13 +38,14 @@ public class SustanciaActiva {
 		this.productosFitosanitarios = new ArrayList<>();
 	}
 	
+	//Constructor usado para el método copia sin lista.
 	private SustanciaActiva(long id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
 		this.productosFitosanitarios = new ArrayList<>();
 	}
 	
-	
+	//Añade un producto a su lista.
 	public void addProductoFitosanitario(ProductoFitosanitario prod) {
 		productosFitosanitarios.add(prod);
 	}
@@ -73,6 +75,7 @@ public class SustanciaActiva {
 		this.productosFitosanitarios = productosFitosanitarios;
 	}
 	
+	//Método para copiar el objeto sin la lista.
 	public SustanciaActiva copiaSinLista() {
 		return(new SustanciaActiva(this.id, this.nombre));
 	}

@@ -9,7 +9,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Entity;
 @Entity
 public class Especie {
-	
+	//Esta es la clase Especie, son su constructores y sus setters y getters
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
@@ -24,6 +25,7 @@ public class Especie {
 		this.plagas = new ArrayList<Plaga>();
 	}
 	
+	//Constructor usado para el método copia sin lista.
 	private Especie(long id, String nombreVulgar, String nombreCientifico) {
 		this.id = id;
 		this.nombreVulgar = nombreVulgar;
@@ -63,10 +65,11 @@ public class Especie {
 	public void setPlagas(ArrayList<Plaga> plagas) {
 		this.plagas = plagas;
 	}
+	//Añade una plaga a su lista.
 	public void addPlaga(Plaga p) {
 		this.plagas.add(p);
 	}
-	
+	//Método para copiar el objeto sin la lista.
 	public Especie copiaSinLista() {
 		return(new Especie(this.id, this.nombreVulgar, this.nombreCientifico));
 	}
